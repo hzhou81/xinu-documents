@@ -19,13 +19,14 @@ sudo apt-get install oracle-java8-installer
 git remote add csdn https://code.csdn.net/hazel_81/xinu.git   //orgin是github的地址，添加一个csdn的备份地址
 右击xinu项目，在C/C++Build中Build Commands是${cross_make}，Build directory是${workspace_loc:/xinu/compile/},WorkBench Build Behavior中把all都去掉改为PLATFORM=arm-rpi COMPILER_ROOT=/usr/bin/arm-none-eabi-,Toolchain Path都设置成/usr/bin（包括Project，WorkSpace和Global都用这个设置)
 把xinu文档中的bootcode.bin和start.elf拷贝到一张树莓派兼容的SD卡(FAT格式)根目录下,并把项目编译出来的xinu.boot重命名为kernel.img也拷贝到SD卡根目录
-======================安装OpenOCD======================
+
 sudo apt-get install minicom
 sudo minicom -s 端口设置为/dev/ttyUSB0 Hardware Flow Control设置为NO
 cd /home/hzhos/Documents
 git clone git://git.code.sf.net/p/openocd/code
+mv code openocd
 sudo apt-get install libtool autoconf libusb-dev libftdi-dev libusb-1.0.0 libusb-1.0.0-dev
-cd code
+cd openocd
 ./bootstrap
 ./configure --enable-maintainer-mode --enable-ftdi
 make
@@ -36,7 +37,7 @@ sudo udevadm control --reload-rules
 cd /home/hzhos/Documents/code/tcl/board/
 wget http://movr0.com/files/rpi2.cfg
 openocd -f ../tcl/interface/ftdi/100ask-openjtag.cfg -f ../tcl/board/rpi2.cfg
-======================OpenOCD结束======================
+
 用杜邦线按下表进行连接
 JTAG		RPi2 GPIO
 VREF*(1)	Pin 1
