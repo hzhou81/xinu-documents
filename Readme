@@ -31,12 +31,10 @@ cd openocd
 ./configure --enable-maintainer-mode --enable-ftdi
 make
 sudo make install
-sudo cp /home/hzhos/Documents/code/contrib/99-openocd.rules /etc/udev/rules.d/
-sudo vi /etc/udev/rules.d 修改其中FT2232的字段把idVendor修改为1457,把idProduct修改为5118并保存
+sudo cp /home/hzhos/Documents/openocd/contrib/99-openocd.rules /etc/udev/rules.d/
+sudo vi /etc/udev/rules.d/99-openocd.rules 修改其中FT2232的字段把idVendor修改为1457,把idProduct修改为5118并保存
 sudo udevadm control --reload-rules
-cd /home/hzhos/Documents/code/tcl/board/
-wget http://movr0.com/files/rpi2.cfg
-openocd -f ../tcl/interface/ftdi/100ask-openjtag.cfg -f ../tcl/board/rpi2.cfg
+openocd -f tcl/interface/ftdi/100ask-openjtag.cfg -f tcl/interface/raspberrypi-native.cfg	
 
 用杜邦线按下表进行连接
 JTAG		RPi2 GPIO
