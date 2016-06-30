@@ -19,9 +19,11 @@ make -C compile PLATFORM=arm-rpi COMPILER_ROOT=/usr/bin/arm-none-eabi-
 
 　　![SD卡](https://github.com/hzhou81/xinu-documents/blob/master/images/sd.png) ![拷贝到SD卡的三个文件](https://github.com/hzhou81/xinu-documents/blob/master/images/xinuSD.png)
 
-sudo add-apt-repository ppa:webupd8team/java
++ 安装Oracle Java 8.0
+<pre><code>sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
 sudo apt-get install oracle-java8-installer
+</code></pre>
 下载eclipse并解压到/opt/eclipse
 启动eclipse,在Marketplace中搜索"GNU ARM"并安装(安装过程需要启动VPN)
 把xinu这个项目移到其它文件夹，然后新建C++ Project名为xinu(Toolchain位置为/usr/bin),放在原来同样的位置，然后再把xinu的源代码(包含.git)拷贝回来
