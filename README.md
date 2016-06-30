@@ -17,7 +17,8 @@ make -C compile PLATFORM=arm-rpi COMPILER_ROOT=/usr/bin/arm-none-eabi-
 </code></pre>
 + 把compile目录下的xinu.boot重命名为kernel.img再和[bootcode.bin](https://github.com/hzhou81/xinu-documents/blob/master/bootcode.bin)以及[start.elf](https://github.com/hzhou81/xinu-documents/blob/master/start.elf)拷贝到一张树莓派兼容的SD卡(FAT格式)根目录下，就可以运行出XINU操作系统
 
-![SD卡](https://github.com/hzhou81/xinu-documents/blob/master/images/sd.png) ![拷贝到SD卡的三个文件](https://github.com/hzhou81/xinu-documents/blob/master/images/xinuSD.png)
+　　![SD卡](https://github.com/hzhou81/xinu-documents/blob/master/images/sd.png) ![拷贝到SD卡的三个文件](https://github.com/hzhou81/xinu-documents/blob/master/images/xinuSD.png)
+
 sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
 sudo apt-get install oracle-java8-installer
