@@ -1,13 +1,16 @@
 ## Xinu 在树莓派上编译调试的具体文档
-+ 安装Git并且下载最新的xinu代码
-sudo apt-get install git
++ 安装Git并且下载最新的XINU代码
+<pre><code>sudo apt-get install git
 cd Documents
 git clone https://github.com/hzhou81/xinu.git
-sudo apt-get install gcc-arm-none-eabi
+</code></pre>
++ 安装ARM交叉编译环境
+<pre><code>sudo apt-get install gcc-arm-none-eabi
 sudo apt-get install gcc
 sudo apt-get install bison
 sudo apt-get install flex
-cd /home/hzhos/Documents/xinu
+</pre></code>
+cd xinu
 make -C compile clean     //清理编译目录
 make -C compile PLATFORM=arm-rpi COMPILER_ROOT=/usr/bin/arm-none-eabi-           //编译源代码，在compile目录下生成xinu.elf文件
 sudo apt-get install fcitx   //安装输入法框架
@@ -37,7 +40,7 @@ sudo cp /home/hzhos/Documents/openocd/contrib/99-openocd.rules /etc/udev/rules.d
 sudo vi /etc/udev/rules.d/99-openocd.rules 修改其中FT2232的字段把idVendor修改为1457,把idProduct修改为5118并保存
 sudo udevadm control --reload-rules
 用杜邦线按下表进行连接
-JTAG		RPi GPIO
+JTAG    	RPi GPIO
 VREF*(1)	Pin 1
 nTRST(3)	Pin 15
 GND(4)		Pin 9
