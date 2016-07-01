@@ -27,13 +27,15 @@ sudo apt-get install oracle-java8-installer
 
 + 安装最新版的Eclipse(下载eclipse并解压到/opt/eclipse,启动eclipse,在Marketplace中搜索"GNU ARM"并安装
 
-+ 把xinu这个项目移到其它文件夹，然后新建C++ Project名为xinu(Toolchain位置为/usr/bin),放在原来同样的位置，然后再把xinu的源代码(包含.git)拷贝回来
++ 把xinu这个项目移到其它文件夹，然后新建C++ Project名为xinu(Toolchain位置为/usr/bin),放在原来同样的位置，然后再把xinu的源代码(包含里面的.git目录)拷贝回来
 
-+ 添加一个CSDN的Git备份
++ 添加一个CSDN的Git备份(这步可选做)
 <pre><code>git remote add csdn https://code.csdn.net/hazel_81/xinu.git   
 </code></pre>
 
-右击xinu项目，在C/C++Build中Build Commands是${cross_make}，Build directory是${workspace_loc:/xinu/compile/},Build settings中Enable parallel build前打勾,WorkBench Build Behavior中把all都去掉改为PLATFORM=arm-rpi COMPILER_ROOT=/usr/bin/arm-none-eabi-,Toolchain Path都设置成/usr/bin（包括Project，WorkSpace和Global都用这个设置)
++ 设置XINU项目的属性
+右击xinu项目，在C/C++Build中Build Commands是${cross_make}，Build directory是${workspace_loc:/xinu/compile/}
+Build settings中Enable parallel build前打勾,WorkBench Build Behavior中把all都去掉改为PLATFORM=arm-rpi COMPILER_ROOT=/usr/bin/arm-none-eabi-,Toolchain Path都设置成/usr/bin（包括Project，WorkSpace和Global都用这个设置)
 
 sudo apt-get install minicom
 sudo minicom -s 端口设置为/dev/ttyUSB0 Hardware Flow Control设置为NO
