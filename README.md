@@ -43,8 +43,9 @@ sudo apt-get install oracle-java8-installer
 
 + 制作用于连接OpenJTAG和树莓派的JTAG转GPIO连接线,首先在淘宝购买[20pin 2.54mm间距 JTAG排线](https://item.taobao.com/item.htm?spm=a1z10.3-c.w4002-275922945.12.fZZ4W4&id=12937777563) 和[FC-26P IDC压线头 2.54MM间距](https://item.taobao.com/item.htm?spm=a1z10.3-c.w4002-5688543101.9.WDrVpv&id=10247398093) 把JTAG排线的一头拆掉,按照下图所示把压线头安装上去
 　　![连线方法](https://github.com/hzhou81/xinu-documents/blob/master/images/JTAG.png)
-
-
++ 把制作好的线，一端插入树莓派的GPIO端口，另外一端从塑料外壳的SD卡口接出来，这样可以把我的线固定的更加牢靠
+　　![连接树莓派](https://github.com/hzhou81/xinu-documents/blob/master/images/JTAG-GPIO.png)
+ 
 sudo apt-get install minicom
 sudo minicom -s 端口设置为/dev/ttyUSB0 Hardware Flow Control设置为NO
 cd /home/hzhos/Documents
