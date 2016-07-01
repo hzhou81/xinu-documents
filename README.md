@@ -1,3 +1,4 @@
+*安装Git并且下载最新的xinu代码
 sudo apt-get install git
 cd Documents
 git clone https://github.com/hzhou81/xinu.git
