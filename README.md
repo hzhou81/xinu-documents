@@ -15,9 +15,8 @@ sudo apt-get install flex
 make -C compile clean
 make -C compile PLATFORM=arm-rpi COMPILER_ROOT=/usr/bin/arm-none-eabi-
 </code></pre>
-在compile目录下生成xinu.elf文件
-sudo apt-get install fcitx   //安装输入法框架
-到http://pinyin.sogou.com/linux/?r=pinyin下载搜狗输入法，双击安装，并重启电脑
++ 把compile目录下的xinu.boot重命名为kernel.img再和[bootcode.bin](https://github.com/hzhou81/xinu-documents/blob/master/bootcode.bin)以及[start.elf](https://github.com/hzhou81/xinu-documents/blob/master/start.elf)拷贝到一张树莓派兼容的SD卡(FAT格式)根目录下，就可以运行出XINU操作系统
+
 sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
 sudo apt-get install oracle-java8-installer
@@ -26,7 +25,6 @@ sudo apt-get install oracle-java8-installer
 把xinu这个项目移到其它文件夹，然后新建C++ Project名为xinu(Toolchain位置为/usr/bin),放在原来同样的位置，然后再把xinu的源代码(包含.git)拷贝回来
 git remote add csdn https://code.csdn.net/hazel_81/xinu.git   //orgin是github的地址，添加一个csdn的备份地址
 右击xinu项目，在C/C++Build中Build Commands是${cross_make}，Build directory是${workspace_loc:/xinu/compile/},Build settings中Enable parallel build前打勾,WorkBench Build Behavior中把all都去掉改为PLATFORM=arm-rpi COMPILER_ROOT=/usr/bin/arm-none-eabi-,Toolchain Path都设置成/usr/bin（包括Project，WorkSpace和Global都用这个设置)
-把xinu文档中的bootcode.bin和start.elf拷贝到一张树莓派兼容的SD卡(FAT格式)根目录下,并把项目编译出来的xinu.boot重命名为kernel.img也拷贝到SD卡根目录
 
 sudo apt-get install minicom
 sudo minicom -s 端口设置为/dev/ttyUSB0 Hardware Flow Control设置为NO
