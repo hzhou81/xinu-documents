@@ -46,13 +46,14 @@ sudo apt-get install oracle-java8-installer
 + 把制作好的线，一端插入树莓派的GPIO端口，另外一端从塑料外壳的SD卡口接出来，这样可以把我的线固定的更加牢靠
 　　![连接树莓派](https://github.com/hzhou81/xinu-documents/blob/master/images/JTAG-GPIO.JPG)
 
-+ 给树莓派安装Linux操作系统,把刚才那张SD卡用FAT格式化掉，然后用[Win32Imager]() 把[Pidora ARM Linux](http://www.pidora.ca/pidora/releases/20/images/Pidora-2014-R3.zip) 解压出来的镜像写到SD卡中，当然你也可以用其它支持树莓派的Linux发行版
-+ 用LED测试JTAG端口的正确性。将树莓派上电，启动Linux，并将一个LED灯泡一端连接在JTAG的3号口(nTRST),另外一端连接在JTAG的4号口(GND),在树莓派的Linux上执行
++ 给树莓派安装Linux操作系统,把刚才那张SD卡用FAT格式化掉，然后用[Win32Imager](https://sourceforge.net/projects/win32diskimager/) 把[Pidora ARM Linux](http://www.pidora.ca/pidora/releases/20/images/Pidora-2014-R3.zip) 解压出来的镜像写到SD卡中，当然你也可以用其它支持树莓派的Linux发行版
++ 用LED测试JTAG连接线的正确性。将树莓派上电，启动Linux，并将一个LED灯泡一端连接在JTAG的3号口(nTRST),另外一端连接在JTAG的4号口(GND),在树莓派的Linux上执行
 <pre><code>cd /sys/class/gpio
  echo 22 > export
  cd gpio22
  echo out > direction
- echo 1 > value</code></pre>
+ echo 1 > value</code></pre>关闭LED灯
+ <pre><code>echo 0 > value</code></pre>
 sudo apt-get install minicom
 sudo minicom -s 端口设置为/dev/ttyUSB0 Hardware Flow Control设置为NO
 cd /home/hzhos/Documents
