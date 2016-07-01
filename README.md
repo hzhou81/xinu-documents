@@ -1,5 +1,6 @@
+## Xinu 在树莓派上编译调试的具体文档
 + 安装Git并且下载最新的xinu代码
-++ sudo apt-get install git
+sudo apt-get install git
 cd Documents
 git clone https://github.com/hzhou81/xinu.git
 sudo apt-get install gcc-arm-none-eabi
