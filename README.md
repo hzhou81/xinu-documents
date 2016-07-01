@@ -37,6 +37,7 @@ sudo apt-get install oracle-java8-installer
 
 右击xinu项目，在C/C++Build中Build Commands是${cross_make}，Build directory是${workspace_loc:/xinu/compile/}
 Build settings中Enable parallel build前打勾,WorkBench Build Behavior中把all都去掉改为PLATFORM=arm-rpi COMPILER_ROOT=/usr/bin/arm-none-eabi-,Toolchain Path都设置成/usr/bin（包括Project，WorkSpace和Global都用这个设置)
+![设置编译路径](https://github.com/hzhou81/xinu-documents/blob/master/images/setting1.png) ![设置编译参数](https://github.com/hzhou81/xinu-documents/blob/master/images/setting2.png) 
 
 sudo apt-get install minicom
 sudo minicom -s 端口设置为/dev/ttyUSB0 Hardware Flow Control设置为NO
