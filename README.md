@@ -34,6 +34,7 @@ sudo apt-get install oracle-java8-installer
 </code></pre>
 
 + 设置XINU项目的属性
+
 右击xinu项目，在C/C++Build中Build Commands是${cross_make}，Build directory是${workspace_loc:/xinu/compile/}
 Build settings中Enable parallel build前打勾,WorkBench Build Behavior中把all都去掉改为PLATFORM=arm-rpi COMPILER_ROOT=/usr/bin/arm-none-eabi-,Toolchain Path都设置成/usr/bin（包括Project，WorkSpace和Global都用这个设置)
 
