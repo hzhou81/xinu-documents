@@ -9,10 +9,13 @@ git clone https://github.com/hzhou81/xinu.git
 sudo apt-get install gcc
 sudo apt-get install bison
 sudo apt-get install flex
-</pre></code>
-cd xinu
-make -C compile clean     //清理编译目录
-make -C compile PLATFORM=arm-rpi COMPILER_ROOT=/usr/bin/arm-none-eabi-           //编译源代码，在compile目录下生成xinu.elf文件
+</code></pre>
++ 命令行手动编译XINU
+<pre><code>cd xinu
+make -C compile clean
+make -C compile PLATFORM=arm-rpi COMPILER_ROOT=/usr/bin/arm-none-eabi-
+</code></pre>
+在compile目录下生成xinu.elf文件
 sudo apt-get install fcitx   //安装输入法框架
 到http://pinyin.sogou.com/linux/?r=pinyin下载搜狗输入法，双击安装，并重启电脑
 sudo add-apt-repository ppa:webupd8team/java
