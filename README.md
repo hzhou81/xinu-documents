@@ -68,9 +68,11 @@ sudo make install
 </code></pre>
 + 添加OpenJTAG设备文件
 <pre><code>sudo cp /home/hzhos/Documents/openocd/contrib/99-openocd.rules /etc/udev/rules.d/
-sudo vi /etc/udev/rules.d/99-openocd.rules 修改其中FT2232的字段把idVendor修改为1457,把idProduct修改为5118并保存
-sudo udevadm control --reload-rules
+sudo vi /etc/udev/rules.d/99-openocd.rules</code></pre>
+修改其中FT2232的字段把idVendor修改为1457,把idProduct修改为5118并保存
+<pre><code>sudo udevadm control --reload-rules
 </code></pre>
+
 
 
 sudo apt-get install minicom
