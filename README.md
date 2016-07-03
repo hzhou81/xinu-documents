@@ -53,7 +53,9 @@ sudo apt-get install oracle-java8-installer
  echo 22 > export
  cd gpio22
  echo out > direction
- echo 1 > value</code></pre>关闭LED灯
+ echo 1 > value</code></pre>
+ ![打开LED](https://github.com/hzhou81/xinu-documents/blob/master/images/LED.JPG)
+ 关闭LED灯
  <pre><code>echo 0 > value</code></pre>
 + 下载并编译OpenOCD
 <pre><code>cd /home/hzhos/Documents
@@ -76,20 +78,11 @@ sudo vi /etc/udev/rules.d/99-openocd.rules</code></pre>
 <pre><code>g++ -o JtagEnabler JtagEnabler.cpp
  sudo ./JtagEnabler
 </code></pre>
-
++ 
 
 sudo apt-get install minicom
 sudo minicom -s 端口设置为/dev/ttyUSB0 Hardware Flow Control设置为NO
-用杜邦线按下表进行连接
-JTAG    	RPi GPIO
-VREF*(1)	Pin 1
-nTRST(3)	Pin 15
-GND(4)		Pin 9
-TDI(5) 		Pin 7
-TMS(7)		Pin 13
-TCK(9)		Pin 22
-RTCK(11)	Pin 16
-TDO(13)		Pin 18
+
 openocd -f tcl/interface/ftdi/100ask-openjtag.cfg -f tcl/board/raspberry_pi.cfg	
 sudo apt-get install arm-none-eabi-gdb
 在eclipse的Windows->Preference菜单中设置OCD的目录为/home/hzhos/Documents/code
