@@ -55,6 +55,7 @@ sudo apt-get install oracle-java8-installer
  echo out > direction
  echo 1 > value</code></pre>
  ![打开LED](https://github.com/hzhou81/xinu-documents/blob/master/images/LED.JPG)
+ 
  关闭LED灯
  <pre><code>echo 0 > value</code></pre>
 + 下载并编译OpenOCD
