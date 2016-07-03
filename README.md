@@ -79,12 +79,13 @@ sudo vi /etc/udev/rules.d/99-openocd.rules</code></pre>
 <pre><code>g++ -o JtagEnabler JtagEnabler.cpp
  sudo ./JtagEnabler
 </code></pre>
-+ 
++ 启动OpenOCD守护进程。将[树莓派配置文件](https://github.com/hzhou81/xinu-documents/blob/master/raspberry_pi.cfg) 拷贝到openocd的tcl/board目录下，然后启动OpenOCD进程，这个命令行启动好后不要关闭
+<pre><code>openocd -f tcl/interface/ftdi/100ask-openjtag.cfg -f tcl/board/raspberry_pi.cfg	</code></pre>
 
 sudo apt-get install minicom
 sudo minicom -s 端口设置为/dev/ttyUSB0 Hardware Flow Control设置为NO
 
-openocd -f tcl/interface/ftdi/100ask-openjtag.cfg -f tcl/board/raspberry_pi.cfg	
+
 sudo apt-get install arm-none-eabi-gdb
 在eclipse的Windows->Preference菜单中设置OCD的目录为/home/hzhos/Documents/code
 在xinu项目的debug中新增一个Debug Configuration，C++ Application选择compile/xinu.elf,Executable设置为${openocd_path}/src/${openocd_executable}，Configure Options设置为-f ${openocd_path}/tcl/interface/ftdi/100ask-openjtag.cfg -f ${openocd_path}/tcl/board/bcmrpi2.cfg,把Enable ARM semihosting的勾去掉，
