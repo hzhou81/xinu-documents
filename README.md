@@ -47,8 +47,9 @@ sudo apt-get install oracle-java8-installer
 　　![连接树莓派](https://github.com/hzhou81/xinu-documents/blob/master/images/JTAG-GPIO.JPG)
 
 + 给树莓派安装Linux操作系统,把刚才那张SD卡用FAT格式化掉，然后用[Win32Imager](https://sourceforge.net/projects/win32diskimager/) 把[Pidora ARM Linux](http://www.pidora.ca/pidora/releases/20/images/Pidora-2014-R3.zip) 解压出来的镜像写到SD卡中，当然你也可以用其它支持树莓派的Linux发行版
-+ 用LED测试JTAG连接线的正确性。将树莓派上电，启动Linux，并将一个LED灯泡一端连接在JTAG的3号口(nTRST),另外一端连接在JTAG的4号口(GND),在树莓派的Linux上执行
++ 用LED测试JTAG连接线的正确性。将树莓派上电，启动Linux，并将一个LED灯泡一端连接在JTAG的3号口(nTRST),另外一端连接在JTAG的4号口(GND),在树莓派的Linux上执行(注意:第三行export前面是有空格的)
 <pre><code>cd /sys/class/gpio
+ sudo -s
  echo 22 > export
  cd gpio22
  echo out > direction
