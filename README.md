@@ -72,7 +72,10 @@ sudo vi /etc/udev/rules.d/99-openocd.rules</code></pre>
 修改其中FT2232的字段把idVendor修改为1457,把idProduct修改为5118并保存
 <pre><code>sudo udevadm control --reload-rules
 </code></pre>
-
++  将树莓派的GPIO端口改为JTAG模式。把[JtagEnabler.cpp]() 拷贝到树莓派的某个目录，执行下列命令
+<pre><code>g++ -o JtagEnabler JtagEnabler.cpp
+ sudo ./JtagEnabler
+</code></pre>
 
 
 sudo apt-get install minicom
