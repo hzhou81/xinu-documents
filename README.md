@@ -82,6 +82,15 @@ sudo vi /etc/udev/rules.d/99-openocd.rules</code></pre>
 + 启动OpenOCD守护进程。将[树莓派配置文件](https://github.com/hzhou81/xinu-documents/blob/master/raspberry_pi.cfg) 拷贝到openocd的tcl/board目录下，然后启动OpenOCD进程，这个命令行启动好后不要关闭
 <pre><code>openocd -f tcl/interface/ftdi/100ask-openjtag.cfg -f tcl/board/raspberry_pi.cfg	</code></pre>
 
++ 测试GDB是否可以通过OpenOCD来调试树莓派。另开一个命令行窗口，输入以下命令
+<pre><code>arm-none-eabi-gdb
+target remote 127.0.0.1:3333
+x/10i $pc
+stepi
+x/2i $pc
+</code></pre>如果pc寄存器所指向的命令变成下一条指令了，就说明JTAG调试成功了
+
++ 
 sudo apt-get install minicom
 sudo minicom -s 端口设置为/dev/ttyUSB0 Hardware Flow Control设置为NO
 
