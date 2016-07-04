@@ -76,10 +76,11 @@ sudo vi /etc/udev/rules.d/99-openocd.rules</code></pre>
 <pre><code>sudo udevadm control --reload-rules
 </code></pre>
 +  将树莓派的GPIO端口改为JTAG模式。把[JtagEnabler.cpp](https://github.com/hzhou81/xinu-documents/blob/master/JtagEnabler.cpp) 拷贝到树莓派的某个目录，执行下列命令
-<pre><code>g++ -o JtagEnabler JtagEnabler.cpp
+<pre><code>sudo yum install gcc-c++
+g++ -o JtagEnabler JtagEnabler.cpp
  sudo ./JtagEnabler
 </code></pre>
-+ 启动OpenOCD守护进程。将[树莓派配置文件](https://github.com/hzhou81/xinu-documents/blob/master/raspberry_pi.cfg) 拷贝到openocd的tcl/board目录下，然后启动OpenOCD进程，这个命令行启动好后不要关闭
++ 启动OpenOCD守护进程(可以理解成是一个GDB Server)。将[树莓派配置文件](https://github.com/hzhou81/xinu-documents/blob/master/raspberry_pi.cfg) 拷贝到openocd的tcl/board目录下，然后启动OpenOCD进程，这个命令行启动好后不要关闭
 <pre><code>openocd -f tcl/interface/ftdi/100ask-openjtag.cfg -f tcl/board/raspberry_pi.cfg	</code></pre>
 
 sudo apt-get install minicom
