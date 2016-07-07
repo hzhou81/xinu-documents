@@ -91,7 +91,10 @@ stepi
 x/2i $pc
 </code></pre>如果pc寄存器所指向的命令变成下一条指令了，就说明JTAG调试成功了
 
-+ 
++ Eclipse里设置OpenOCD路径。在Eclipse的Windows->Preference里，点击Run/Debug->OpenOCD中设置openocd的路径是/home/hzhos/Documents/openocd
+
++ Eclipse里设置GDB调试XINU。
+
 sudo apt-get install minicom
 sudo minicom -s 端口设置为/dev/ttyUSB0 Hardware Flow Control设置为NO
 
