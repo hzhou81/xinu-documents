@@ -93,7 +93,10 @@ x/2i $pc
 
 + Eclipse里设置OpenOCD路径。在Eclipse的Windows->Preference里，点击Run/Debug->OpenOCD中设置openocd的路径是/home/hzhos/Documents/openocd
 
-+ Eclipse里设置GDB调试XINU。
++ Eclipse里设置GDB调试XINU。右击XINU点Debug As->Debug Configurations,新建一个名为"XINU Debug"的GDB OpenOCD Debugging的项目,Project选xinu，C/C++ Application选Search Project里面的compile/xinu.elf ,如下图
+![设置页1](https://github.com/hzhou81/xinu-documents/blob/master/images/gdb_debug1.png)
+在Debugger页内,Executable设为${openocd_path}/src/${openocd_executable}，Config options设为-f ${openocd_path}/tcl/interface/ftdi/100ask-openjtag.cfg -f ${openocd_path}/tcl/board/raspberry_pi.cfg ,如下图
+![设置页1](https://github.com/hzhou81/xinu-documents/blob/master/images/gdb_debug2.png)
 
 sudo apt-get install minicom
 sudo minicom -s 端口设置为/dev/ttyUSB0 Hardware Flow Control设置为NO
