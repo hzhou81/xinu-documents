@@ -6,7 +6,6 @@ git clone https://github.com/hzhou81/xinu.git
 </code></pre>
 + 安装ARM交叉编译环境
 <pre><code>sudo apt-get install gcc-arm-none-eabi
-sudo apt-get install gcc
 sudo apt-get install bison
 sudo apt-get install flex
 </code></pre>
@@ -58,7 +57,7 @@ sudo apt-get install oracle-java8-installer
  
  关闭LED灯
  <pre><code>echo 0 > value</code></pre>
-+ 下载并编译OpenOCD
++ 下载并编译OpenOCD(OpenJTAG/JLINK)
 <pre><code>cd /home/${USER}/Documents
 git clone git://git.code.sf.net/p/openocd/code
 mv code openocd
@@ -66,6 +65,8 @@ sudo apt-get install libtool autoconf libusb-dev libftdi-dev libusb-1.0.0 libusb
 cd openocd
 ./bootstrap
 ./configure --enable-maintainer-mode --enable-ftdi
+or
+./configure --enable-maintainer-mode --enable-jlink
 make
 sudo make install
 </code></pre>
