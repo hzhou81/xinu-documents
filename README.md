@@ -57,7 +57,7 @@ sudo apt-get install oracle-java8-installer
  
  关闭LED灯
  <pre><code>echo 0 > value</code></pre>
-+ 下载并编译OpenOCD(OpenJTAG/JLINK)
++ 下载并编译OpenOCD(OpenJTAG或者JLINK)
 <pre><code>cd /home/${USER}/Documents
 git clone git://git.code.sf.net/p/openocd/code
 mv code openocd
@@ -65,7 +65,7 @@ sudo apt-get install libtool autoconf libusb-dev libftdi-dev libusb-1.0.0 libusb
 cd openocd
 ./bootstrap
 ./configure --enable-maintainer-mode --enable-ftdi
-or
+或者
 ./configure --enable-maintainer-mode --enable-jlink
 make
 sudo make install
