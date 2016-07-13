@@ -6,6 +6,7 @@ git clone https://github.com/hzhou81/xinu.git
 </code></pre>
 + 安装ARM交叉编译环境
 <pre><code>sudo apt-get install gcc-arm-none-eabi
+sudo apt-get install gdb-arm-none-eabi
 sudo apt-get install bison
 sudo apt-get install flex
 </code></pre>
@@ -57,16 +58,14 @@ sudo apt-get install oracle-java8-installer
  
  关闭LED灯
  <pre><code>echo 0 > value</code></pre>
-+ 下载并编译OpenOCD(OpenJTAG或者JLINK)
++ 下载并编译OpenOCD
 <pre><code>cd /home/${USER}/Documents
 git clone git://git.code.sf.net/p/openocd/code
 mv code openocd
 sudo apt-get install libtool autoconf libusb-dev libftdi-dev libusb-1.0.0 libusb-1.0.0-dev
 cd openocd
 ./bootstrap
-./configure --enable-maintainer-mode --enable-ftdi
-或者
-./configure --enable-maintainer-mode --enable-jlink
+./configure --enable-maintainer-mode --enable-ftdi --enable-jlink
 make
 sudo make install
 </code></pre>
@@ -91,6 +90,10 @@ x/10i $pc
 stepi
 x/2i $pc
 </code></pre>如果pc寄存器所指向的命令变成下一条指令了，就说明JTAG调试成功了
+<pre><code>
+mww 0x20200028 0x10000
+mww 0x2020001C 0x10000
+</code></pre>如果发现树莓派上的有个绿色的灯点亮并且熄灭了就说明写内存成功
 
 + Eclipse里设置OpenOCD路径。在Eclipse的Windows->Preference里，点击Run/Debug->OpenOCD中设置openocd的路径是/home/hzhos/Documents/openocd
 
