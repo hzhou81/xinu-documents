@@ -64,6 +64,15 @@ git clone git://git.code.sf.net/p/openocd/code
 mv code openocd
 sudo apt-get install libtool autoconf libusb-dev libftdi-dev libusb-1.0.0 libusb-1.0.0-dev
 cd openocd
+</code></pre>
+修改/home/${USER}/Documents/openocd/src/target中的arm11_dbgtap.c中注释掉以下这段
+<code><pre>if (error_count > 0) {
+			LOG_ERROR("%u words out of %u not transferred",
+				error_count, readiesNum);
+			retval = ERROR_FAIL;
+		}
+</code></pre>然后继续编译源代码
+<code><pre>
 ./bootstrap
 ./configure --enable-maintainer-mode --enable-ftdi --enable-jlink
 make
