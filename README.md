@@ -117,5 +117,5 @@ mww 0x2020001C 0x10000
 + Eclipse里设置GDB默认源代码搜索路径。在Eclipse中Window菜单->Preference->C/C++->Debug->Source Lookup Path中，删除原来所有的设置，新增一个"FileSystem Directory",并指向根目录/
 
 + 最终调试界面
-[完成](https://github.com/hzhou81/xinu-documents/blob/master/images/debug.png)
+![完成](https://github.com/hzhou81/xinu-documents/blob/master/images/debug.png)
 
