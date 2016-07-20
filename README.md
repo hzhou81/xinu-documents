@@ -4,6 +4,9 @@
 cd Documents
 git clone https://github.com/hzhou81/xinu.git
 </code></pre>
+
++ 为项目的Makefile文件添加调试信息。修改/home/${USER}/Documents/xinu/compile/Makefile文件，在309行和313行中添加-g开关
+
 + 安装ARM交叉编译环境
 <pre><code>sudo apt-get install gcc-arm-none-eabi
 sudo apt-get install gdb-arm-none-eabi
@@ -110,4 +113,9 @@ mww 0x2020001C 0x10000
 ![设置页1](https://github.com/hzhou81/xinu-documents/blob/master/images/gdb_debug1.png)
 在Debugger页内,Executable设为${openocd_path}/src/${openocd_executable}，Config options设为-f ${openocd_path}/tcl/interface/ftdi/100ask-openjtag.cfg -f ${openocd_path}/tcl/board/raspberry_pi.cfg ,把Enable ARM semihosting的勾去掉如下图
 ![设置页1](https://github.com/hzhou81/xinu-documents/blob/master/images/gdb_debug2.png)
+
++ Eclipse里设置GDB默认源代码搜索路径。在Eclipse中Window菜单->Preference->C/C++->Debug->Source Lookup Path中，删除原来所有的设置，新增一个"FileSystem Directory",并指向根目录/
+
+最终调试界面
+![完成](https://github.com/hzhou81/xinu-documents/blob/master/images/debug.png)
 
