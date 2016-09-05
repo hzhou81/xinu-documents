@@ -5,7 +5,7 @@ cd Documents
 git clone https://github.com/hzhou81/xinu.git xinu
 </code></pre>
 
-+ 为项目的Makefile文件添加调试信息。修改/home/${USER}/Documents/xinu/compile/Makefile文件，在309行和313行中添加-g开关
++ 为项目的Makefile文件添加调试信息。修改/home/${USER}/Documents/xinu/compile/Makefile文件，在309行和313行中的-o前添加-g开关
 
 + 安装ARM交叉编译环境
 <pre><code>sudo apt-get install gcc-arm-none-eabi
@@ -36,7 +36,7 @@ sudo apt-get install oracle-java8-installer
 <pre><code>git remote add csdn https://code.csdn.net/hazel_81/xinu.git   
 </code></pre>
 
-+ 设置XINU项目的属性，右击xinu项目，在C/C++Build中Build Commands是${cross_make}，Build directory是${workspace_loc:/xinu/compile/}
++ 设置XINU项目的属性，右击xinu项目，在C/C++Build中Build Commands是${cross_make}，Build directory是${workspace_loc:/xinu/compile}
 　　![设置编译路径](https://github.com/hzhou81/xinu-documents/blob/master/images/setting1.png)
 
 + 设置XINU项目的属性，右击xinu项目，在Build settings中Enable parallel build前打勾,WorkBench Build Behavior中把all都去掉改为PLATFORM=arm-rpi COMPILER_ROOT=/usr/bin/arm-none-eabi-
