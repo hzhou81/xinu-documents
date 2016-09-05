@@ -2,7 +2,7 @@
 + 安装Git并且下载最新的XINU代码
 <pre><code>sudo apt-get install git
 cd Documents
-git clone https://github.com/hzhou81/xinu.git
+git clone https://github.com/hzhou81/xinu.git xinu
 </code></pre>
 
 + 为项目的Makefile文件添加调试信息。修改/home/${USER}/Documents/xinu/compile/Makefile文件，在309行和313行中添加-g开关
@@ -28,7 +28,7 @@ sudo apt-get update
 sudo apt-get install oracle-java8-installer
 </code></pre>
 
-+ 安装最新版的Eclipse(下载eclipse并解压到/opt/eclipse,启动eclipse,在Marketplace中搜索"GNU ARM"并安装
++ 安装最新版的Eclipse C/C++ for Linux 64bit版本(下载eclipse并解压到/opt/eclipse,启动eclipse,在Marketplace中搜索"GNU ARM"并安装
 
 + 把xinu这个项目移到其它文件夹，然后新建C++ Project名为xinu(Toolchain位置为/usr/bin),放在原来同样的位置，然后再把xinu的源代码(包含里面的.git目录)拷贝回来
 
