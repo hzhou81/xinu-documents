@@ -68,7 +68,7 @@ mv code openocd
 sudo apt-get install libtool autoconf libusb-dev libftdi-dev libusb-1.0.0 libusb-1.0.0-dev
 cd openocd
 </code></pre>
-修改/home/${USER}/Documents/openocd/src/target中的arm11_dbgtap.c中注释掉以下这段
+修改/home/${USER}/Documents/openocd/src/target中的arm11_dbgtap.c中注释掉620行以下这段代码
 <code><pre>if (error_count > 0) {
 			LOG_ERROR("%u words out of %u not transferred",
 				error_count, readiesNum);
@@ -77,7 +77,7 @@ cd openocd
 </code></pre>然后继续编译源代码
 <code><pre>
 ./bootstrap
-./configure --enable-maintainer-mode --enable-ftdi --enable-jlink
+./configure --enable-maintainer-mode --enable-ftdi
 make
 sudo make install
 </code></pre>
@@ -103,8 +103,9 @@ stepi
 x/2i $pc
 </code></pre>如果pc寄存器所指向的命令变成下一条指令了，就说明JTAG调试成功了
 <pre><code>
-mww 0x20200028 0x10000
-mww 0x2020001C 0x10000
+#telnet 127.0.0.1 4444
+>mww 0x20200028 0x10000
+>mww 0x2020001C 0x10000
 </code></pre>如果发现树莓派上的有个绿色的灯点亮并且熄灭了就说明写内存成功
 
 + Eclipse里设置OpenOCD路径。在Eclipse的Windows->Preference里，点击Run/Debug->OpenOCD中设置openocd的路径是/home/hzhos/Documents/openocd
