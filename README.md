@@ -121,7 +121,7 @@ mww 0x2020001C 0x10000
 + 配置终端输入输出。购买一个[USB转TTL的模块](https://item.taobao.com/item.htm?spm=a1z09.2.0.0.HCwAPF&id=521699082592&_u=75a2hlhcad6),按照下图方式和树莓派连接
 ![tty连接图](https://github.com/hzhou81/xinu-documents/blob/master/images/TTL.png)
 
-+ 使用minicom连接。将USB转TTL模块连接到系统，成为一个/dev/ttyUSB1的设备，打开minicom设置端口是/dev/ttyUSB1并且波特率是115200
++ 使用minicom连接。首先sudo apt install minicom安装minicom组件。将USB转TTL模块连接到系统，成为一个/dev/ttyUSB1的设备，打开minicom设置端口是/dev/ttyUSB1并且波特率是115200
 
 + 开始调试时候，看到Xinu通过PL011芯片，输出到GPIO上TTL信号，最终显示在终端调试电脑的屏幕上的信息
 ![minicom调试图](https://github.com/hzhou81/xinu-documents/blob/master/images/minicom.png)
