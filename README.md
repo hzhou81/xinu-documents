@@ -102,9 +102,8 @@ x/10i $pc
 stepi
 x/2i $pc
 </code></pre>如果pc寄存器所指向的命令变成下一条指令了，就说明JTAG调试成功了,下面在命令行下执行telnet 127.0.0.1 4444
-<pre><code>
->mww 0x20200028 0x10000
->mww 0x2020001C 0x10000
+<pre><code>mww 0x20200028 0x10000
+mww 0x2020001C 0x10000
 </code></pre>如果发现树莓派上的有个绿色的灯点亮并且熄灭了就说明写内存成功
 
 + Eclipse里设置OpenOCD路径。在Eclipse的Windows->Preference里，点击Run/Debug->OpenOCD中设置openocd的路径是/home/hzhos/Documents/openocd
