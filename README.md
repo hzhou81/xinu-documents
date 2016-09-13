@@ -7,7 +7,7 @@ git clone https://github.com/hzhou81/xinu.git xinu
 
 + Modify Makefile in order to add debug information in project。Modify /home/${USER}/Documents/xinu/compile/Makefile，At line 309 and 313, add "-g" just before "-o"
 
-+ Install ARM Cross-compiler toolchian 
++ Install ARM Cross-compiler toolchian and related packages
 <pre><code>sudo apt-get install gcc-arm-none-eabi
 sudo apt-get install gdb-arm-none-eabi
 sudo apt-get install bison
@@ -18,31 +18,31 @@ sudo apt-get install flex
 make -C compile clean
 make -C compile PLATFORM=arm-rpi COMPILER_ROOT=/usr/bin/arm-none-eabi-
 </code></pre>
-+ 把compile目录下的xinu.boot重命名为kernel.img再和[bootcode.bin](https://github.com/hzhou81/xinu-documents/blob/master/bootcode.bin)以及[start.elf](https://github.com/hzhou81/xinu-documents/blob/master/start.elf)拷贝到一张树莓派兼容的SD卡(FAT格式)根目录下，就可以运行出XINU操作系统
++ Rename "xinu.boot" to "kernel.img" in compile directory, and then with [bootcode.bin](https://github.com/hzhou81/xinu-documents/blob/master/bootcode.bin) and [start.elf](https://github.com/hzhou81/xinu-documents/blob/master/start.elf) these three files copy to a Raspberry PI certificated SD card（FAT file system) 's root directory，so now you can run XINU OS
 
-　　![SD卡](https://github.com/hzhou81/xinu-documents/blob/master/images/sd.png) ![拷贝到SD卡的三个文件](https://github.com/hzhou81/xinu-documents/blob/master/images/xinuSD.png)
+　　![SD Card](https://github.com/hzhou81/xinu-documents/blob/master/images/sd.png) ![Copy three files to SD Card](https://github.com/hzhou81/xinu-documents/blob/master/images/xinuSD.png)
 
-+ 安装Oracle Java 8.0
++ Install Oracle Java 8.0
 <pre><code>sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
 sudo apt-get install oracle-java8-installer
 </code></pre>
 
-+ 安装最新版的Eclipse C/C++ for Linux 64bit版本(下载eclipse并解压到/opt/eclipse,启动eclipse,在Marketplace中搜索"GNU ARM"并安装
++ Install the lastest Eclipse C/C++ for Linux 64bit Version(Download eclipse and tar extract it to /opt/eclipse,Launch eclipse,find "GNU ARM" in Marketplace
 
-+ 把xinu这个项目移到其它文件夹，然后新建C++ Project名为xinu(Toolchain位置为/usr/bin),放在原来同样的位置，然后再把xinu的源代码(包含里面的.git目录)拷贝回来
++ Move xinu directory to another directory, and then new a C++ Project named "xinu"(Toolchain location:/usr/bin),make it same location，finally copy previous xinu source code (including the .git directory) back
 
-+ 添加一个CSDN的Git备份(这步可选做)
++ Add a optical CSDN Git backup
 <pre><code>git remote add csdn https://code.csdn.net/hazel_81/xinu.git   
 </code></pre>
 
-+ 设置XINU项目的属性，右击xinu项目，在C/C++Build中Build Commands是${cross_make}，Build directory是${workspace_loc:/xinu/compile}
-　　![设置编译路径](https://github.com/hzhou81/xinu-documents/blob/master/images/setting1.png)
++ Setting XINU project property, right click xinu project，In C/C++Build->Build Commands,set it to ${cross_make}，"Build directory" set it to${workspace_loc:/xinu/compile}
+　　![set compile directory](https://github.com/hzhou81/xinu-documents/blob/master/images/setting1.png)
 
-+ 设置XINU项目的属性，右击xinu项目，在Build settings中Enable parallel build前打勾,WorkBench Build Behavior中把all都去掉改为PLATFORM=arm-rpi COMPILER_ROOT=/usr/bin/arm-none-eabi-
-　　![设置编译参数](https://github.com/hzhou81/xinu-documents/blob/master/images/setting2.png) 
++ Setting XINU project property，right click xinu project，In Build settings,check the "Enable parallel build",In "WorkBench Build Behavior" modify all "all" to "PLATFORM=arm-rpi COMPILER_ROOT=/usr/bin/arm-none-eabi-"
+　　![set compile directory](https://github.com/hzhou81/xinu-documents/blob/master/images/setting2.png) 
 
-+ 设置XINU项目的属性，右击xinu项目，将Toolchain Path都设置成/usr/bin（包括Project，WorkSpace和Global都用这个设置)
++ Setting XINU project property, right click xinu project，Set "Toolchain Path" to "/usr/bin"（Include Project，WorkSpace and Global)
 
 + 解决出现Symbol 'OK' could not be resolved，右击xinu项目点属性，进入C/C++ General->Paths and Symbols,在GNU C中添加/xinu/include
 　　![设置包含路径](https://github.com/hzhou81/xinu-documents/blob/master/images/include.png) 
