@@ -44,6 +44,9 @@ sudo apt-get install oracle-java8-installer
 
 + 设置XINU项目的属性，右击xinu项目，将Toolchain Path都设置成/usr/bin（包括Project，WorkSpace和Global都用这个设置)
 
++ 解决出现Symbol 'OK' could not be resolved，右击xinu项目点属性，进入C/C++ General->Paths and Symbols,在GNU C中添加/xinu/include
+　　![设置包含路径](https://github.com/hzhou81/xinu-documents/blob/master/images/include.png) 
+ 
 + 制作用于连接OpenJTAG和树莓派的JTAG转GPIO连接线,首先在淘宝购买[20pin 2.0mm间距 JTAG排线](https://item.taobao.com/item.htm?spm=a1z09.2.0.0.PdxKf4&id=13722984152&_u=15a2hlh92fa) 和[FC-26P IDC压线头 2.54MM间距](https://item.taobao.com/item.htm?spm=a1z10.3-c.w4002-5688543101.9.WDrVpv&id=10247398093) 把JTAG排线的一头拆掉,按照下图所示把压线头安装上去
 　　![连线方法](https://github.com/hzhou81/xinu-documents/blob/master/images/JTAG.png)
 + 把制作好的线，一端插入树莓派的GPIO端口，另外一端从塑料外壳的SD卡口接出来，这样可以把我的线固定的更加牢靠
