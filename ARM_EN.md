@@ -95,6 +95,26 @@ sudo vi /etc/udev/rules.d/99-openocd.rules</code></pre>
 g++ -o JtagEnabler JtagEnabler.cpp
  sudo ./JtagEnabler
 </code></pre>
+
++ 将上面那个JtagEnabler设为开机自启动。在树莓派的Pidora操作系统中执行以下命令，创建jtag的服务，并且设置为开机自启动并运行服务。
+<pre><code>
+cd /usr/lib/systemd/system
+sudo vi jtag.service
+输入
+[Unit]
+Description=Start Jtag on startup
+[Service]
+Type=forking
+ExecStart=/home/hzhos/Documents/JtagEnabler
+[Install]
+WantedBy=multi-user.target
+保存退出
+sudo chmod 754 jtag.service
+sudo systemctl start jtag.service
+sudo systemctl status jtag.service
+sudo systemctl enable jtag.service
+</code></pre>
+
 + 启动OpenOCD守护进程(可以理解成是一个GDB Server)。将[树莓派配置文件](https://github.com/hzhou81/xinu-documents/blob/master/raspberry_pi.cfg) 拷贝到openocd的tcl/board目录下，然后启动OpenOCD进程，这个命令行启动好后不要关闭
 <pre><code>openocd -f tcl/interface/ftdi/100ask-openjtag.cfg -f tcl/board/raspberry_pi.cfg	</code></pre>
 

@@ -53,6 +53,7 @@ sudo apt-get install oracle-java8-installer
 　　![连接树莓派](https://github.com/hzhou81/xinu-documents/blob/master/images/JTAG-GPIO.JPG)
 
 + 给树莓派安装Linux操作系统,把刚才那张SD卡用FAT格式化掉，然后用[Win32Imager](https://sourceforge.net/projects/win32diskimager/) 把[Pidora ARM Linux](http://www.pidora.ca/pidora/releases/20/images/Pidora-2014-R3.zip) 解压出来的镜像写到SD卡中，当然你也可以用其它支持树莓派的Linux发行版
+
 + 用LED测试JTAG连接线的正确性。将树莓派上电，启动Linux，并将一个LED灯泡一端连接在JTAG的3号口(nTRST),另外一端连接在JTAG的4号口(GND),在树莓派的Linux上执行(注意:第三行export前面是有空格的)
 <pre><code>cd /sys/class/gpio
  sudo -s
@@ -95,6 +96,26 @@ sudo vi /etc/udev/rules.d/99-openocd.rules</code></pre>
 g++ -o JtagEnabler JtagEnabler.cpp
  sudo ./JtagEnabler
 </code></pre>
+
++ 将上面那个JtagEnabler设为开机自启动。在树莓派的Pidora操作系统中执行以下命令，创建jtag的服务，并且设置为开机自启动并运行服务。
+<pre><code>
+cd /usr/lib/systemd/system
+sudo vi jtag.service
+输入
+[Unit]
+Description=Start Jtag on startup
+[Service]
+Type=forking
+ExecStart=/home/hzhos/Documents/JtagEnabler
+[Install]
+WantedBy=multi-user.target
+保存退出
+sudo chmod 754 jtag.service
+sudo systemctl start jtag.service
+sudo systemctl status jtag.service
+sudo systemctl enable jtag.service
+</code></pre>
+
 + 启动OpenOCD守护进程(可以理解成是一个GDB Server)。将[树莓派配置文件](https://github.com/hzhou81/xinu-documents/blob/master/raspberry_pi.cfg) 拷贝到openocd的tcl/board目录下，然后启动OpenOCD进程，这个命令行启动好后不要关闭
 <pre><code>openocd -f tcl/interface/ftdi/100ask-openjtag.cfg -f tcl/board/raspberry_pi.cfg	</code></pre>
 
