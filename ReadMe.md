@@ -1,4 +1,6 @@
 ﻿## Documents about develop Xinu targeting Raspberry PI in Eclipse
+[中文版本](https://github.com/hzhou81/xinu-documents/blob/master/ARM_CHN.md)
+
 + Install Git and download the newest XINU source code
 <pre><code>sudo apt-get install git
 cd Documents
