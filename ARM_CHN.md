@@ -13,6 +13,7 @@ sudo apt-get install bison
 sudo apt-get install flex
 sudo apt-get install make
 sudo apt-get install g++
+sudo apt-get install texinfo
 </code></pre>
 
 + 安装GDB
@@ -20,7 +21,7 @@ sudo apt-get install g++
 xz -d gdb-8.1.tar.xz
 tar xvf gdb-8.1.tar
 cd gdb-8.1/
-./configure --target=arm-none-eabi
+./configure --target=arm-none-eabi --program-prefix=arm-none-eabi- --prefix=/usr/bin/
 make
 make install
 </code></pre>
