@@ -22,6 +22,7 @@ tar xvf gdb-8.1.tar
 cd gdb-8.1/
 ./configure --target=arm-none-eabi
 make
+make install
 </code></pre>
 
 + 命令行手动编译XINU
