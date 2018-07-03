@@ -12,6 +12,7 @@ git clone https://github.com/hzhou81/xinu.git xinu
 sudo apt-get install gdb-arm-none-eabi
 sudo apt-get install bison
 sudo apt-get install flex
+sudo apt-get install make
 </code></pre>
 + Compile XINU in command line
 <pre><code>cd xinu

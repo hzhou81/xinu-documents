@@ -9,10 +9,23 @@ git clone https://github.com/hzhou81/xinu.git xinu
 
 + 安装ARM交叉编译环境
 <pre><code>sudo apt-get install gcc-arm-none-eabi
-sudo apt-get install gdb-arm-none-eabi
 sudo apt-get install bison
 sudo apt-get install flex
+sudo apt-get install make
+sudo apt-get install g++
+sudo apt-get install texinfo
 </code></pre>
+
++ 安装GDB
+<pre><code>wget http://ftp.gnu.org/gnu/gdb/gdb-8.1.tar.xz
+xz -d gdb-8.1.tar.xz
+tar xvf gdb-8.1.tar
+cd gdb-8.1/
+./configure --target=arm-none-eabi --program-prefix=arm-none-eabi- --prefix=/usr/bin/
+make
+make install
+</code></pre>
+
 + 命令行手动编译XINU
 <pre><code>cd xinu
 make -C compile clean
